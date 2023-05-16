@@ -52,6 +52,9 @@ class Client(BaseModel):
     
     def __str__(self):
         return f"{self.name} | {self.email}"
+    
+    class Meta:
+        unique_together = ['name', 'email']
 
 
 class SubscriptionPlan(BaseModel):
@@ -78,3 +81,8 @@ class Metrics(BaseModel):
 
     def __str__(self):
         return self.number_of_users
+    
+
+
+class History(BaseModel):
+    remarks = models.TextField()
