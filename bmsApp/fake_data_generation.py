@@ -17,9 +17,13 @@ for _ in range(30):
     Client.objects.create(domain = domain, **client_data)
 
     subscription_plan_data = {
-        'number_of_users' : fake.random_number(digits=3, fix_len=False),
+        'number_of_users' : fake.random_number(
+                                digits=3, fix_len=False
+                                ),
         'modules': fake.random_element(MODULE_CHOICE)[0],
-        'price': fake.random_number(digits=5, fix_len=True)
+        'price': fake.random_number(   
+                                digits=5, fix_len=True
+                                )
     }
     SubscriptionPlan.objects.create( **subscription_plan_data)
 
@@ -53,3 +57,5 @@ for i in range(30):
 
 Subscription.objects.bulk_create(subscription_list, ignore_conflicts=True)
 Metrics.objects.bulk_create(metrics_list, ignore_conflicts=True)
+
+

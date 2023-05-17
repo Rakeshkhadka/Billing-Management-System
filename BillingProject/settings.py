@@ -131,6 +131,11 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '1e28142a90dcae'
+EMAIL_HOST_PASSWORD = 'c149707205b323'
+EMAIL_PORT = '2525'
+
 
 Q_CLUSTER = {
     'name': 'BillingProject',
@@ -147,3 +152,4 @@ Q_CLUSTER = {
         'port': 6379,
         'db': 0, }
 }
+
