@@ -4,6 +4,9 @@ from .views import ClientViewset
 
 router = DefaultRouter()
 router.register('client', ClientViewset, basename='client')
+# urlpatterns = [
+#     path('home/', feed_data)
+# ]
 
-
+# urlpatterns += router.urls
 urlpatterns = router.urls

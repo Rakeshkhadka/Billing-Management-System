@@ -14,9 +14,9 @@ for _ in range(10):
         'country': fake.country(),
         'status' : fake.random_element(STATUS_CHOICES)[0]
     }
-    domain = client_data['name'].split(' ')[0] + 'realhrsoft.com.np'
+    domain = client_data['name'].split(' ')[0] + '.realhrsoft.com.np'
     Client.objects.create(domain = domain, **client_data)
-    SubscriptionPlan.objects.c
+    # SubscriptionPlan.objects.c
 
 
 
