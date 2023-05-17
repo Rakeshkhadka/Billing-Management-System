@@ -80,7 +80,7 @@ class Metrics(BaseModel):
     number_of_organizations = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.number_of_users
+        return str(self.number_of_users)
     
 
 
