@@ -17,6 +17,11 @@ class ClientSerializer(serializers.ModelSerializer):
             raise ValidationError("Updating status with verified user is not allowed.")
         
         return value
+    def validate(self, data):
+        if self.instance and self.instance.status == 'verified':
+            raise ValidationError("Updating status with verified user is not allowed.")
+        
+        return data
 class HistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = History
