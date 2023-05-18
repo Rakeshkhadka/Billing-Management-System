@@ -24,7 +24,7 @@ class Command(BaseCommand):
                 'country': fake.country(),
                 'status' : fake.random_element(STATUS_CHOICES)[0]
             }
-            domain = client_data['name'].split(' ')[0] + '.realhrsoft.com.np'
+            domain = 'https://' + client_data['name'].split(' ')[0].lower() + '.realhrsoft.com.np'
             Client.objects.create(domain = domain, **client_data)
 
             subscription_plan_data = {

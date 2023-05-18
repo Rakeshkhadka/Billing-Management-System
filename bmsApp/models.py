@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from .validators import validate_email
+from django.core.validators import RegexValidator
+
 
 # Create your models here.
 ORGANIZATION_SIZE_CHOICES = (
@@ -43,7 +46,7 @@ class BaseModel(models.Model):
        
 class Client(BaseModel):
     name               = models.CharField(max_length=255)
-    email              = models.EmailField()
+    email              = models.EmailField(validators=[validate_email])
     domain             = models.URLField()
     organization_size  = models.CharField(choices=ORGANIZATION_SIZE_CHOICES, max_length=6)
     expiry_date        = models.DateField()

@@ -70,12 +70,19 @@ class ClientViewset(viewsets.ModelViewSet):
     
         return Response(res.data )
     
+    # def update(self, request, *args, **kwargs):
+    #     if self.get_object().status != 'verified':
+    #         res = super().update(request, *args, **kwargs)
+    #         return Response(res.data)
+    #     else:
+    #         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    
     @action(detail=False, methods=['GET'])
     def verified(self, request, *args, **kwargs):
         verified_client = self.queryset.filter(status='verified')
         serializer = self.get_serializer(verified_client, many=True)
         return Response(serializer.data)
-    
+
     @action(detail=False, methods=['GET'])
     def unverified(self, request, *args, **kwargs):
         verified_client = Client.objects.filter(status='unverified')
